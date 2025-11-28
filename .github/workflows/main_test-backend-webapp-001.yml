@@ -65,7 +65,7 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'test-backend-webapp-001'
-          slot-name: ${{ inputs.target_env }}
           package: '*.jar'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+
 
