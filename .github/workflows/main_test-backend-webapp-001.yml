@@ -25,6 +25,12 @@ jobs:
           distribution: 'microsoft'
 
       - name: Build with Maven
+        env:
+          TARGET_ENV: ${{ vars.TARGET_ENV }} 
+          DB_URL: ${{ secrets.DB_URL }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          
         run: mvn clean install
 
       - name: Upload artifact for deployment job
@@ -50,4 +56,5 @@ jobs:
           app-name: 'test-backend-webapp-001'
           slot-name: 'Production'
           package: '*.jar'
+
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B2AEE717CE6E48C2A94858CE3E3140A6 }}
