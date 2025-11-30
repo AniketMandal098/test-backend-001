@@ -64,8 +64,9 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'test-backend-webapp-001'
+          app-name: 'backend-001'
           package: '*.jar'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+
 
 
