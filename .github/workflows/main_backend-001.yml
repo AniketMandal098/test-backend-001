@@ -34,12 +34,12 @@ jobs:
 
       - name: Build with Maven
         env:
-          TARGET_ENV: ${{ vars.env }}
+          SPRING_PROFILES_ACTIVE: ${{ vars.ENV }}
           DB_URL: ${{ secrets.DB_URL }}
           DB_USERNAME: ${{ secrets.DB_USERNAME }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: |
-          mvn clean install -Dspring.profiles.active=$TARGET_ENV
+          mvn clean install
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
