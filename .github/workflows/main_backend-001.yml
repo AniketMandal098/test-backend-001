@@ -39,7 +39,7 @@ jobs:
           DB_USERNAME: ${{ secrets.DB_USERNAME }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: |
-          mvn clean install -Dspring.profiles.active=${TARGET_ENV}
+          mvn clean install -Dspring.profiles.active=$TARGET_ENV
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
